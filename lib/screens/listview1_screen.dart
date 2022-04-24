@@ -16,10 +16,10 @@ class Listview1Screen extends StatelessWidget {
             ...options.map(
               (game) =>  ListTile(
                 title: Text(game),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: const Icon(Icons.arrow_forward_ios),
               )
               ).toList(),
-              Divider(),
+              const Divider(),
               
 
 
