@@ -7,6 +7,11 @@ export 'package:fl_components/screens/avatar_screen.dart';
 export 'package:fl_components/screens/animated_screen.dart';
 export 'package:fl_components/screens/inputs_screen.dart';
 export 'package:fl_components/widgets/custom_input_field.dart';
+export 'package:fl_components/screens/slider_screen.dart';
+export 'package:fl_components/screens/list_view_builder_screen.dart';
+
+
+
 
 
 

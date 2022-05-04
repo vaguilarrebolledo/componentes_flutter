@@ -9,6 +9,9 @@ class CustomInputField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool isPassword;
 
+  final String formProperty;
+  final Map<String, String> formValues;
+
   const CustomInputField({
     Key? key,
     this.hintText,
@@ -18,6 +21,8 @@ class CustomInputField extends StatelessWidget {
     this.suffixIcon,
     this.keyboardType,
     this.isPassword = false,
+    required this.formProperty, // campos oblitatorios
+    required this.formValues, // campo obligatorio
   }) : super(key: key);
 
   @override
@@ -27,13 +32,11 @@ class CustomInputField extends StatelessWidget {
       initialValue: '',
       obscureText: isPassword,
       textCapitalization: TextCapitalization.words,
-      keyboardType: keyboardType , //para agregar @ al teclado
-      onChanged: (value) {
-        print('value: $value');
-      },
+      keyboardType: keyboardType, //para agregar @ al teclado
+      onChanged: (value) => formValues[formProperty] = value,
       validator: (value) {
         if (value == null) return 'Este campo es requerido';
-        return value.length < 3 ? 'Minimo de 3 letras' : null;
+        //return value.length < 3 ? 'Minimo de 3 letras' : null;
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
 
@@ -44,8 +47,10 @@ class CustomInputField extends StatelessWidget {
         helperText: helperText,
         //counterText: '3 caracteres',
         //prefixIcon: Icon(Icons.verified_user),
-        suffixIcon: suffixIcon == null? null: Icon(suffixIcon), //const Icon(Icons.group_outlined) :Icon(suffixIcon),
-        icon: icon == null? null: Icon(icon), //const Icon(Icons.assignment_ind_outlined)
+        //const Icon(Icons.group_outlined) :Icon(suffixIcon),
+        suffixIcon: suffixIcon == null? null: Icon(suffixIcon), 
+        icon: icon == null? null: Icon(icon), 
+       //const Icon(Icons.assignment_ind_outlined)
         // focusedBorder: OutlineInputBorder(
         //   borderSide: BorderSide(
         //     color: Colors.green
